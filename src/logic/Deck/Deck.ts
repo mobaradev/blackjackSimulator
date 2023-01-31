@@ -14,7 +14,8 @@ class Deck {
     }
 
     shuffle() {
-
+        const shuffled = this.cards.sort((a, b) => 0.5 - Math.random());
+        this.cards = [...shuffled];
     }
 
     getCard() {
