@@ -2,8 +2,10 @@ import styled from "styled-components";
 import {useEffect, useState} from "react";
 
 const Container = styled.div<{isVisible: boolean}>`
-  width: 100px;
-  height: 200px;
+  width: 50px;
+  height: 100px;
+  font-size: 38px;
+  background-color: white;
   margin: 10px 20px;
   border: 1px solid black;
   transition: 1s;
@@ -23,7 +25,7 @@ function CardUI(props: any) {
 
     return(
         <Container isVisible={isVisible}>
-            Card {props.number}
+            {props.number}
         </Container>
     )
 }
