@@ -39,7 +39,7 @@ function Panel() {
             <div>
                 <Button onClick={() => AppController.blackjack.start()}>Start</Button>
                 <Button onClick={() => AppController.blackjack.hit()}>Hit</Button>
-                <Button>Stand</Button>
+                <Button onClick={() => AppController.blackjack.stand()}>Stand</Button>
                 <Button>Double</Button>
                 <Button>Split</Button>
             </div>
