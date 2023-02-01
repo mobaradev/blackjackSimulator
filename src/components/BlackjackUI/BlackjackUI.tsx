@@ -36,13 +36,23 @@ function BlackjackUI(props: any) {
             addPlayerCard(AppController.blackjack.playerCards[i]);
         }
 
-        addDealerCard(AppController.blackjack.dealerCards[0]);
+        for (let i = 0; i < AppController.blackjack.dealerCards.length; i++) {
+            addDealerCard(AppController.blackjack.dealerCards[i]);
+        }
+
         console.log(AppController.blackjack.dealerCards)
 
     }
 
     const gameEnd = () => {
         setTimeout(() => {
+
+            // instant blackjack check
+            if (AppController.blackjack.playerPoints === 21 && AppController.blackjack.dealerPoints !== 21) {
+                alert("Blackjack!");
+                return;
+            }
+
             if (AppController.blackjack.playerPoints > 21) {
                 alert("Player busted!");
             } else {

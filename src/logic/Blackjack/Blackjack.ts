@@ -39,6 +39,12 @@ class Blackjack {
             this.splitActionStatus = ACTION_STATUS.AVAILABLE;
         }
 
+        if (this.playerPoints === 21) {
+            this.dealerCards.push(this.deck.getCard())
+            AppController.onGameEnd();
+            this.isGameActive = false;
+        }
+
         AppController.onGameStart();
         AppController.onUpdate();
     }
