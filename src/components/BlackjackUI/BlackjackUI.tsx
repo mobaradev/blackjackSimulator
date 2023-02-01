@@ -4,13 +4,23 @@ import {useEffect, useState} from "react";
 import CardUI from "../CardUI/CardUI";
 import Clearfix from "../Base/Clearfix/Clearfix";
 import Card from "../../logic/Card/Card";
+import Center from "../Base/Center/Center";
 
 const Container = styled.div`
   width: 800px;
   height: 600px;
   
-  background-color: green;
+  //background-color: green;
   float: left;
+`;
+
+const CardsContainer = styled.div`
+  width: 100%;
+  height: 200px;
+  padding-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 function BlackjackUI(props: any) {
@@ -93,27 +103,31 @@ function BlackjackUI(props: any) {
             Blackjack
             <Clearfix />
 
-            <h2>Dealer {AppController.blackjack.dealerPointsParsed}</h2>
+            <Center><h2>Dealer {AppController.blackjack.dealerPointsParsed}</h2></Center>
             <Clearfix />
-            <>
-            {
-                dealerCards.map(
-                    (card, index) => <CardUI key={gameId + "-" + index} number={card.value} />
-                )
-            }
-            </>
+            <CardsContainer>
+                <div>
+                    {
+                        dealerCards.map(
+                            (card, index) => <CardUI key={gameId + "-" + index} number={card.value} />
+                        )
+                    }
+                </div>
+            </CardsContainer>
 
             <Clearfix />
 
-            <h2>Player {AppController.blackjack.playerPointsParsed}</h2>
+            <Center><h2>Player {AppController.blackjack.playerPointsParsed}</h2></Center>
             <Clearfix />
-            <>
-            {
-                playerCards.map(
-                    (card, index) => <CardUI key={gameId + "-" + index} number={card.value} />
-                )
-            }
-            </>
+            <CardsContainer>
+                <div>
+                    {
+                        playerCards.map(
+                            (card, index) => <CardUI key={gameId + "-" + index} number={card.value} />
+                        )
+                    }
+                </div>
+            </CardsContainer>
         </Container>
     )
 }

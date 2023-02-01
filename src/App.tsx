@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import Panel from "./components/Panel/Panel";
 import BlackjackUI from "./components/BlackjackUI/BlackjackUI";
+import Center from "./components/Base/Center/Center";
 
 const Container = styled.div`
   width: 100vw;
@@ -20,7 +21,9 @@ function App() {
   return (
     <Container>
         <Content>
-            <BlackjackUI />
+            <Center>
+                <BlackjackUI />
+            </Center>
         </Content>
         <Panel />
     </Container>
