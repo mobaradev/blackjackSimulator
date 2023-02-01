@@ -108,11 +108,32 @@ class Blackjack {
         return playerPoints;
     }
 
+    get playerPointsParsed() : string {
+        const realPoints = this.playerPoints;
+        let totalPoints = 0;
+        let isAce = false;
+
+        this.playerCards.forEach(card => {
+            totalPoints += card.value;
+            if (card.isAce) isAce = true;
+        });
+
+        if (isAce && totalPoints < 21) {
+            return `${realPoints - 10} / ${realPoints}`;
+        } else {
+            return realPoints.toString();
+        }
+    }
+
     get dealerPoints() : number {
         let dealerPoints = 0;
         this.dealerCards.forEach(card => dealerPoints += card.value);
 
         return dealerPoints;
+    }
+
+    get dealerPointsParsed() : string {
+        return this.dealerPoints.toString();
     }
 
 }

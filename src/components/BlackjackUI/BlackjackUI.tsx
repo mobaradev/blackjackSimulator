@@ -93,7 +93,7 @@ function BlackjackUI(props: any) {
             Blackjack
             <Clearfix />
 
-            <h2>Player {AppController.blackjack.dealerPoints}</h2>
+            <h2>Dealer {AppController.blackjack.dealerPointsParsed}</h2>
             <Clearfix />
             <>
             {
@@ -105,7 +105,7 @@ function BlackjackUI(props: any) {
 
             <Clearfix />
 
-            <h2>Player {AppController.blackjack.playerPoints}</h2>
+            <h2>Player {AppController.blackjack.playerPointsParsed}</h2>
             <Clearfix />
             <>
             {
