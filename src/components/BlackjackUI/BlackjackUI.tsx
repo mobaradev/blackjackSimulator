@@ -19,7 +19,6 @@ const CardsContainer = styled.div`
   height: 200px;
   padding-top: 60px;
   display: flex;
-  align-items: center;
   justify-content: center;
 `;
 
@@ -100,9 +99,6 @@ function BlackjackUI(props: any) {
 
     return (
         <Container>
-            Blackjack
-            <Clearfix />
-
             <Center><h2>Dealer {AppController.blackjack.dealerPointsParsed}</h2></Center>
             <Clearfix />
             <CardsContainer>

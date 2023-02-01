@@ -14,6 +14,10 @@ const Container = styled.div`
 const Content = styled.div`
   width: 100%;
   height: calc(100% - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
   float: left;
 `;
 
@@ -21,9 +25,9 @@ function App() {
   return (
     <Container>
         <Content>
-            <Center>
+            <div>
                 <BlackjackUI />
-            </Center>
+            </div>
         </Content>
         <Panel />
     </Container>
