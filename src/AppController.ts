@@ -7,6 +7,8 @@ class AppController {
     static onStand: () => void;
     static onDealerHit: () => void;
     static onGameEnd: () => void;
+    static onUpdate: () => void;
+    // static onPanelUpdate(): () => void;
     // static onPlayerBust: () => void;
     // static onDealerBust: () => void;
 

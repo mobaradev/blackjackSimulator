@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import AppController from "../../AppController";
+import {useEffect, useReducer} from "react";
+import {ACTION_STATUS} from "../../logic/Blackjack/Blackjack";
 
 const Container = styled.div`
   width: 100%;
@@ -31,17 +33,43 @@ const Button = styled.button`
     background-color: silver;
     color: black;
   }
+  
+  &:disabled {
+    color: silver;
+    cursor: not-allowed;
+  }
 `;
 
 function Panel() {
+    const [, forceUpdate] = useReducer(x => x + 1, 0);
+
+    useEffect(() => {
+        AppController.onUpdate = update;
+    }, []);
+
+    const update = () => {
+        forceUpdate();
+    }
+
+    const isButtonAvailable = (buttonName: string) => {
+        if (buttonName === "Start") {
+            return !AppController.blackjack.isGameActive;
+        } else if (buttonName === "Hit" || buttonName === "Stand") {
+            return AppController.blackjack.isGameActive;
+        } else if (buttonName === "Split") {
+            if (!AppController.blackjack.isGameActive) return false;
+            return AppController.blackjack.splitActionStatus !== ACTION_STATUS.AVAILABLE;
+        }
+    }
+
     return (
         <Container>
             <div>
-                <Button onClick={() => AppController.blackjack.start()}>Start</Button>
-                <Button onClick={() => AppController.blackjack.hit()}>Hit</Button>
-                <Button onClick={() => AppController.blackjack.stand()}>Stand</Button>
+                <Button onClick={() => AppController.blackjack.start()} disabled={!isButtonAvailable("Start")}>Start</Button>
+                <Button onClick={() => AppController.blackjack.hit()} disabled={!isButtonAvailable("Hit")}>Hit</Button>
+                <Button onClick={() => AppController.blackjack.stand()} disabled={!isButtonAvailable("Stand")}>Stand</Button>
                 <Button>Double</Button>
-                <Button>Split</Button>
+                <Button disabled={!isButtonAvailable("Split")}>Split</Button>
             </div>
         </Container>
     )
