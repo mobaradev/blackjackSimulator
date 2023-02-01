@@ -64,10 +64,9 @@ class Blackjack {
 
         AppController.onHit();
 
-        if (this.playerPoints > 21) {
+        if (this.playerPoints >= 21) {
             this.isGameActive = false;
             AppController.onGameEnd();
-            AppController.onUpdate();
         }
 
         AppController.onUpdate();
