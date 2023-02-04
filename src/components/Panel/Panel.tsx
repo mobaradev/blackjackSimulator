@@ -2,6 +2,7 @@ import styled from "styled-components";
 import AppController from "../../AppController";
 import {useEffect, useReducer} from "react";
 import {ACTION_STATUS} from "../../logic/Blackjack/Blackjack";
+import GameResultInfo from "../GameResultInfo/GameResultInfo";
 
 const Container = styled.div`
   width: 100%;
@@ -10,10 +11,11 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   float: left;
 `;
 
-const Button = styled.button`
+const PanelButton = styled.button`
   width: auto;
   height: 100%;
   margin: 8px 6px;
@@ -40,6 +42,14 @@ const Button = styled.button`
   }
 `;
 
+const GameResultInfoContainer = styled.div`
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  //background-color: green;
+`;
+
 function Panel() {
     const [, forceUpdate] = useReducer(x => x + 1, 0);
 
@@ -48,6 +58,7 @@ function Panel() {
     }, []);
 
     const update = () => {
+        console.log('update - ' + AppController.blackjack.gameStatus);
         forceUpdate();
     }
 
@@ -65,12 +76,15 @@ function Panel() {
     return (
         <Container>
             <div>
-                <Button onClick={() => AppController.blackjack.start()} disabled={!isButtonAvailable("Start")}>Start</Button>
-                <Button onClick={() => AppController.blackjack.hit()} disabled={!isButtonAvailable("Hit")}>Hit</Button>
-                <Button onClick={() => AppController.blackjack.stand()} disabled={!isButtonAvailable("Stand")}>Stand</Button>
-                <Button>Double</Button>
-                <Button disabled={!isButtonAvailable("Split")}>Split</Button>
+                <PanelButton onClick={() => AppController.blackjack.start()} disabled={!isButtonAvailable("Start")}>Start</PanelButton>
+                <PanelButton onClick={() => AppController.blackjack.hit()} disabled={!isButtonAvailable("Hit")}>Hit</PanelButton>
+                <PanelButton onClick={() => AppController.blackjack.stand()} disabled={!isButtonAvailable("Stand")}>Stand</PanelButton>
+                <PanelButton>Double</PanelButton>
+                <PanelButton disabled={!isButtonAvailable("Split")}>Split</PanelButton>
             </div>
+            <GameResultInfoContainer>
+                <GameResultInfo gameStatus={AppController.blackjack.gameStatus} />
+            </GameResultInfoContainer>
         </Container>
     )
 
