@@ -2,6 +2,16 @@ import Deck from "../Deck/Deck";
 import Card from "../Card/Card";
 import AppController from "../../AppController";
 
+export enum GAME_STATUS {
+    NOT_STARTED,
+    IN_PROGRESS,
+    NORMAL_WIN,
+    BLACKJACK_WIN,
+    NORMAL_LOSE,
+    BUST_LOSE,
+    DRAW
+}
+
 export enum ACTION_STATUS {
     AVAILABLE,
     NOT_AVAILABLE,
@@ -13,13 +23,15 @@ class Blackjack {
     playerCards: Card[];
     dealerCards: Card[];
     isGameActive: boolean;
+    gameStatus: GAME_STATUS;
     isLocked: boolean;
-    doubleActionStatus: ACTION_STATUS
-    splitActionStatus: ACTION_STATUS
+    doubleActionStatus: ACTION_STATUS;
+    splitActionStatus: ACTION_STATUS;
 
     constructor() {
         this.deck = new Deck();
         this.isGameActive = false;
+        this.gameStatus = GAME_STATUS.NOT_STARTED;
         this.isLocked = false;
 
         this.doubleActionStatus = ACTION_STATUS.AVAILABLE;
@@ -31,6 +43,8 @@ class Blackjack {
 
     start() {
         this.clear();
+        this.gameStatus = GAME_STATUS.IN_PROGRESS;
+
         this.playerCards.push(this.deck.getCard())
         this.playerCards.push(this.deck.getCard())
         this.dealerCards.push(this.deck.getCard())
@@ -41,8 +55,7 @@ class Blackjack {
 
         if (this.playerPoints === 21) {
             this.dealerCards.push(this.deck.getCard())
-            AppController.onGameEnd();
-            this.isGameActive = false;
+            this.gameEnd();
         }
 
         AppController.onGameStart();
@@ -65,8 +78,7 @@ class Blackjack {
         AppController.onHit();
 
         if (this.playerPoints >= 21) {
-            this.isGameActive = false;
-            AppController.onGameEnd();
+            this.gameEnd();
         }
 
         AppController.onUpdate();
@@ -85,9 +97,38 @@ class Blackjack {
             this.dealerHit();
         }
 
-        AppController.onGameEnd();
-        this.isGameActive = false;
+       this.gameEnd();
         AppController.onUpdate();
+    }
+
+    gameEnd() {
+        this.isGameActive = false;
+        this.gameStatus = this.determineGameStatus();
+        AppController.onGameEnd();
+        AppController.onUpdate();
+    }
+    
+    determineGameStatus() : GAME_STATUS {
+        // instant blackjack check
+        if (this.playerPoints === 21 && this.dealerPoints !== 21) {
+            return GAME_STATUS.BLACKJACK_WIN;
+        }
+
+        if (this.playerPoints > 21) {
+            return GAME_STATUS.BUST_LOSE;
+        } else {
+            if (this.dealerPoints > 21) {
+                return GAME_STATUS.NORMAL_WIN;
+            } else {
+                if (this.dealerPoints > this.playerPoints) {
+                    return GAME_STATUS.NORMAL_LOSE;
+                } else if (this.dealerPoints < this.playerPoints) {
+                    return GAME_STATUS.NORMAL_WIN;
+                } else {
+                    return GAME_STATUS.DRAW;
+                }
+            }
+        }
     }
 
     get playerPoints() : number {
