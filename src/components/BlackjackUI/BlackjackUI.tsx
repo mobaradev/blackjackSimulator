@@ -54,30 +54,7 @@ function BlackjackUI(props: any) {
     }
 
     const gameEnd = () => {
-        setTimeout(() => {
-
-            // instant blackjack check
-            if (AppController.blackjack.playerPoints === 21 && AppController.blackjack.dealerPoints !== 21) {
-                alert("Blackjack!");
-                return;
-            }
-
-            if (AppController.blackjack.playerPoints > 21) {
-                alert("Player busted!");
-            } else {
-                if (AppController.blackjack.dealerPoints > 21) {
-                    alert("Dealer busted!");
-                } else {
-                    if (AppController.blackjack.dealerPoints > AppController.blackjack.playerPoints) {
-                        alert("Dealer won!")
-                    } else if (AppController.blackjack.dealerPoints < AppController.blackjack.playerPoints) {
-                        alert("Player won!")
-                    } else {
-                        alert("Draw!")
-                    }
-                }
-            }
-        }, 600);
+        // handled by GameResultInfo component from bottom panel
     }
 
     const hit = () => {
