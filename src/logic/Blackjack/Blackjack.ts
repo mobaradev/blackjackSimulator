@@ -6,9 +6,12 @@ export enum GAME_STATUS {
     NOT_STARTED,
     IN_PROGRESS,
     NORMAL_WIN,
+    DOUBLE_DOWN_WIN,
     BLACKJACK_WIN,
     NORMAL_LOSE,
+    DOUBLE_DOWN_LOSE,
     BUST_LOSE,
+    DEALER_BLACKJACK_LOSE,
     DRAW
 }
 
@@ -53,6 +56,8 @@ class Blackjack {
             this.splitActionStatus = ACTION_STATUS.AVAILABLE;
         }
 
+        this.doubleActionStatus = ACTION_STATUS.AVAILABLE;
+
         if (this.playerPoints === 21) {
             this.dealerCards.push(this.deck.getCard())
             this.gameEnd();
@@ -73,6 +78,7 @@ class Blackjack {
 
     hit() {
         if (this.isLocked) return;
+        this.doubleActionStatus = ACTION_STATUS.NOT_AVAILABLE;
         this.playerCards.push(this.deck.getCard())
 
         AppController.onHit();
@@ -82,6 +88,21 @@ class Blackjack {
         }
 
         AppController.onUpdate();
+    }
+
+    hitDouble() {
+        if (this.isLocked) return;
+        this.playerCards.push(this.deck.getCard())
+
+        AppController.onHit();
+
+        if (this.playerPoints >= 21) {
+            this.gameEnd();
+        }
+
+        AppController.onUpdate();
+        this.doubleActionStatus = ACTION_STATUS.USED;
+        this.stand();
     }
 
     dealerHit() {
@@ -104,26 +125,27 @@ class Blackjack {
     gameEnd() {
         this.isGameActive = false;
         this.gameStatus = this.determineGameStatus();
+        AppController.statistics.handleGameEnd(this.gameStatus);
         AppController.onGameEnd();
         AppController.onUpdate();
     }
     
     determineGameStatus() : GAME_STATUS {
         // instant blackjack check
-        if (this.playerPoints === 21 && this.dealerPoints !== 21) {
+        if (this.playerPoints === 21 && this.playerCards.length === 2 && this.dealerPoints !== 21) {
             return GAME_STATUS.BLACKJACK_WIN;
         }
 
         if (this.playerPoints > 21) {
-            return GAME_STATUS.BUST_LOSE;
+            return (this.doubleActionStatus === ACTION_STATUS.USED ? GAME_STATUS.DOUBLE_DOWN_LOSE : GAME_STATUS.BUST_LOSE);
         } else {
             if (this.dealerPoints > 21) {
-                return GAME_STATUS.NORMAL_WIN;
+                return (this.doubleActionStatus === ACTION_STATUS.USED ? GAME_STATUS.DOUBLE_DOWN_WIN : GAME_STATUS.NORMAL_WIN);
             } else {
                 if (this.dealerPoints > this.playerPoints) {
-                    return GAME_STATUS.NORMAL_LOSE;
+                    return (this.doubleActionStatus === ACTION_STATUS.USED ? GAME_STATUS.DOUBLE_DOWN_LOSE : GAME_STATUS.NORMAL_LOSE);
                 } else if (this.dealerPoints < this.playerPoints) {
-                    return GAME_STATUS.NORMAL_WIN;
+                    return (this.doubleActionStatus === ACTION_STATUS.USED ? GAME_STATUS.DOUBLE_DOWN_WIN : GAME_STATUS.NORMAL_WIN);
                 } else {
                     return GAME_STATUS.DRAW;
                 }
