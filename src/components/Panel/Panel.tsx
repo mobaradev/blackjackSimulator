@@ -54,11 +54,10 @@ function Panel() {
     const [, forceUpdate] = useReducer(x => x + 1, 0);
 
     useEffect(() => {
-        AppController.onUpdate = update;
+        AppController.updateListeners.push(update);
     }, []);
 
     const update = () => {
-        console.log('update - ' + AppController.blackjack.gameStatus);
         forceUpdate();
     }
 
@@ -67,6 +66,8 @@ function Panel() {
             return !AppController.blackjack.isGameActive;
         } else if (buttonName === "Hit" || buttonName === "Stand") {
             return AppController.blackjack.isGameActive;
+        } else if (buttonName === "Double") {
+            return AppController.blackjack.isGameActive && AppController.blackjack.doubleActionStatus === ACTION_STATUS.AVAILABLE;
         } else if (buttonName === "Split") {
             if (!AppController.blackjack.isGameActive) return false;
             return AppController.blackjack.splitActionStatus !== ACTION_STATUS.AVAILABLE;
@@ -79,8 +80,8 @@ function Panel() {
                 <PanelButton onClick={() => AppController.blackjack.start()} disabled={!isButtonAvailable("Start")}>Start</PanelButton>
                 <PanelButton onClick={() => AppController.blackjack.hit()} disabled={!isButtonAvailable("Hit")}>Hit</PanelButton>
                 <PanelButton onClick={() => AppController.blackjack.stand()} disabled={!isButtonAvailable("Stand")}>Stand</PanelButton>
-                <PanelButton>Double</PanelButton>
-                <PanelButton disabled={!isButtonAvailable("Split")}>Split</PanelButton>
+                <PanelButton onClick={() => AppController.blackjack.hitDouble()} disabled={!isButtonAvailable("Double")}>Double</PanelButton>
+                {/*<PanelButton disabled={!isButtonAvailable("Split")}>Split</PanelButton>*/}
             </div>
             <GameResultInfoContainer>
                 <GameResultInfo gameStatus={AppController.blackjack.gameStatus} />
