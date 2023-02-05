@@ -26,6 +26,8 @@ class Predictions {
 
         if (playerPoints <= 11) {
             this.hitBust = 0;
+        } else if (AppController.blackjack.numberOfPlayerAces > 0 && !AppController.blackjack.isHardAceUsed) {
+            this.hitBust = 0;
         } else {
             // 10 J Q K -> bust always starting from 12 points
             // each 1 point more, then next card will bust (e.g. 13 points -> 9 10 J Q K -> bust)
@@ -102,7 +104,7 @@ class Predictions {
             [0.1349, 0.1305, 0.1259, 0.1223, 0.1063, 0.1378, 0.3593, 0.1200, 0.1114, 0.1308], // final = 18
             [0.1297, 0.1256, 0.1214, 0.1177, 0.1063, 0.0786, 0.1286, 0.3508, 0.1114, 0.1308], // final = 19
             [0.1240, 0.1203, 0.1165, 0.1131, 0.1017, 0.0786, 0.0694, 0.1200, 0.3422, 0.1308], // final = 20
-            [0.1180, 0.1147, 0.112, 0.1082, 0.0972, 0.0741, 0.0694, 0.0608, 0.0345, 0.0539] // final = 21
+            [0.1180, 0.1147, 0.112, 0.1082, 0.0972, 0.0741, 0.0694, 0.0608, 0.0345 + 1/13, 0.0539] // final = 21
         ]
 
         return data[dealerFinalPoints - 17][dealerStartPoints - 2];
