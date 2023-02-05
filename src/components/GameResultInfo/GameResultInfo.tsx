@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 const Container = styled.div<{isVisible: boolean, styleIndex: number}>`
   background-color: rgba(255, 255, 255, .15);
 
-  backdrop-filter: blur(2px);
+  //backdrop-filter: blur(2px);
   border-radius: 12px;
   font-size: 32px;
   font-weight: bold;
