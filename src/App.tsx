@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {createContext, useState} from 'react';
 import styled from "styled-components";
 import Panel from "./components/Panel/Panel";
 import BlackjackUI from "./components/BlackjackUI/BlackjackUI";
@@ -6,6 +6,7 @@ import Center from "./components/Base/Center/Center";
 import Clearfix from "./components/Base/Clearfix/Clearfix";
 import PanelLeft from "./components/PanelLeft/PanelLeft";
 import PanelRight from "./components/PanelRight/PanelRight";
+import AboutView from "./views/AboutView/AboutView";
 
 const Container = styled.div`
   width: 100%;
@@ -27,17 +28,43 @@ const Content = styled.div`
   float: left;
 `;
 
+type AppContextType = {
+    visibleScreens: number[],
+    setScreenVisibility: (id: number, visibility: boolean) => void
+};
+
+export const AppContext = createContext<AppContextType>({
+    visibleScreens: [],
+    setScreenVisibility: (id, visibility) => {}
+});
+
 function App() {
+    const [visibleScreens, setVisibleScreens] = useState<number[]>([]);
+
+    const setScreenVisibility = (id: number, visibility: boolean) => {
+        setVisibleScreens(visibleScreens => {
+            if (visibility) {
+                if (visibleScreens.indexOf(id) === -1) visibleScreens.push(id);
+            } else {
+                if (visibleScreens.indexOf(id) !== -1) visibleScreens.splice(visibleScreens.indexOf(id), 1);
+            }
+            return [...visibleScreens]
+        });
+    }
   return (
     <Container>
-        <PanelLeft />
-        <Content>
-            <Wrapper>
-                <BlackjackUI />
-            </Wrapper>
-        </Content>
-        <PanelRight />
-        <Panel />
+        <AppContext.Provider value={{visibleScreens: visibleScreens, setScreenVisibility: setScreenVisibility}}>
+            <PanelLeft />
+            <Content>
+                <Wrapper>
+                    <BlackjackUI />
+                </Wrapper>
+            </Content>
+            <PanelRight />
+            <Panel />
+
+            <AboutView />
+        </AppContext.Provider>
     </Container>
   );
 }
