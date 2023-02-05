@@ -84,7 +84,7 @@ class Blackjack {
         AppController.onHit();
 
         if (this.playerPoints >= 21) {
-            this.gameEnd();
+            this.stand();
         }
 
         AppController.onUpdate();
@@ -153,12 +153,22 @@ class Blackjack {
         }
     }
 
+    get numberOfPlayerAces() : number {
+        let numberOfAces = 0;
+
+        this.playerCards.forEach(card => {
+            if (card.isAce) numberOfAces++;
+        });
+
+        return numberOfAces;
+    }
+
     get playerPoints() : number {
         let playerPoints = 0;
-        let numberOfAces = 0;
+        let numberOfAces = this.numberOfPlayerAces;
+
         this.playerCards.forEach(card => {
             playerPoints += card.value;
-            if (card.isAce) numberOfAces++;
         });
 
         for (let i = 0; i < numberOfAces; i++) {
@@ -168,6 +178,18 @@ class Blackjack {
         }
 
         return playerPoints;
+    }
+
+    get isHardAceUsed() : boolean {
+        let playerPoints = this.playerPoints;
+        let numberOfAces = this.numberOfPlayerAces;
+
+        for (let i = 0; i < numberOfAces; i++) {
+            if (playerPoints > 21) {
+                return true;
+            }
+        }
+        return false;
     }
 
     get playerPointsParsed() : string {
@@ -189,7 +211,18 @@ class Blackjack {
 
     get dealerPoints() : number {
         let dealerPoints = 0;
-        this.dealerCards.forEach(card => dealerPoints += card.value);
+        let numberOfAces = this.numberOfPlayerAces;
+
+        this.dealerCards.forEach(card => {
+            dealerPoints += card.value;
+            if (card.isAce) numberOfAces++;
+        });
+
+        for (let i = 0; i < numberOfAces; i++) {
+            if (dealerPoints > 21) {
+                dealerPoints -= 10;
+            }
+        }
 
         return dealerPoints;
     }
