@@ -3,8 +3,9 @@ import Subsection from "../Subsection/Subsection";
 import Clearfix from "../Base/Clearfix/Clearfix";
 import Button from "../Button/Button";
 import {PanelTable, PanelTd} from "../PanelTable/PanelTable";
-import {useEffect, useReducer} from "react";
+import {useContext, useEffect, useReducer} from "react";
 import AppController from "../../AppController";
+import {AppContext} from "../../App";
 
 const Container = styled.div`
   width: 200px;
@@ -28,6 +29,7 @@ enum PREDICTION_TYPES {
 
 function PanelRight(props: any) {
     const [, forceUpdate] = useReducer(x => x + 1, 0);
+    const appContext = useContext(AppContext);
 
     useEffect(() => {
         AppController.updateListeners.push(update);
@@ -105,7 +107,7 @@ function PanelRight(props: any) {
                     </tr>
                 </PanelTable>
             </Subsection>
-            <Button>Cheat sheet</Button>
+            <Button onClick={() => appContext.setScreenVisibility(2, true)}>Cheat sheet</Button>
         </Container>
     )
 }

@@ -7,6 +7,7 @@ import Clearfix from "./components/Base/Clearfix/Clearfix";
 import PanelLeft from "./components/PanelLeft/PanelLeft";
 import PanelRight from "./components/PanelRight/PanelRight";
 import AboutView from "./views/AboutView/AboutView";
+import CheatSheetView from "./views/CheatSheetView/CheatSheetView";
 
 const Container = styled.div`
   width: 100%;
@@ -64,6 +65,7 @@ function App() {
             <Panel />
 
             <AboutView />
+            <CheatSheetView />
         </AppContext.Provider>
     </Container>
   );
