@@ -72,7 +72,7 @@ function SettingsView() {
                 <br />
                 <h3>Dealer on soft 17</h3>
                 <p>
-                    <i>Soft 17 is when the dealer has an ace in his hand that can be valued as 11 or 1.</i>
+                    Soft 17 is a hand that includes Ace counted as 11 points that can be changed in the future to 1 point. In that case, hit action cannot cause bust.
                 </p>
                 <SelectButton onClick={() => setDealerSoft17Action(DEALER_SOFT_17_ACTION.HIT)} selected={SettingsController.dealerSoft17Action === DEALER_SOFT_17_ACTION.HIT}>Hit</SelectButton>
                 <SelectButton onClick={() => setDealerSoft17Action(DEALER_SOFT_17_ACTION.STAND)} selected={SettingsController.dealerSoft17Action === DEALER_SOFT_17_ACTION.STAND}>Stand</SelectButton>
