@@ -8,6 +8,7 @@ import PanelLeft from "./components/PanelLeft/PanelLeft";
 import PanelRight from "./components/PanelRight/PanelRight";
 import AboutView from "./views/AboutView/AboutView";
 import CheatSheetView from "./views/CheatSheetView/CheatSheetView";
+import SettingsView from "./views/SettingsView/SettingsView";
 
 const Container = styled.div`
   width: 100%;
@@ -64,6 +65,7 @@ function App() {
             <PanelRight />
             <Panel />
 
+            <SettingsView />
             <AboutView />
             <CheatSheetView />
         </AppContext.Provider>
