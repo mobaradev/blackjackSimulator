@@ -1,6 +1,7 @@
 import Blackjack from "./logic/Blackjack/Blackjack";
 import Statistics from "./logic/Statistics/Statistics";
 import Predictions from "./logic/Predictions/Predictions";
+import SettingsController from "./SettingsController";
 
 class AppController {
     static statistics: Statistics;
@@ -10,7 +11,6 @@ class AppController {
     static onHit: () => void;
     static onStand: () => void;
     static onDealerHit: () => void;
-    static onGameEnd: () => void;
     static updateListeners: (() => void)[];
     static onUpdate() {
         this.updateListeners.forEach(updateListener => updateListener());
@@ -22,9 +22,12 @@ class AppController {
     // static onDealerBust: () => void;
 
     static init() {
+        SettingsController.init();
+
         AppController.updateListeners = [];
         AppController.statistics = new Statistics();
         AppController.predictions = new Predictions();
+
         AppController.blackjack = new Blackjack();
     }
 }
