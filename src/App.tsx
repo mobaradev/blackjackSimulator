@@ -1,6 +1,6 @@
 import React, {createContext, useState} from 'react';
 import styled from "styled-components";
-import Panel from "./components/Panel/Panel";
+import PanelBottom from "./components/PanelBottom/PanelBottom";
 import BlackjackUI from "./components/BlackjackUI/BlackjackUI";
 import Center from "./components/Base/Center/Center";
 import Clearfix from "./components/Base/Clearfix/Clearfix";
@@ -63,7 +63,7 @@ function App() {
                 </Wrapper>
             </Content>
             <PanelRight />
-            <Panel />
+            <PanelBottom />
 
             <SettingsView />
             <AboutView />

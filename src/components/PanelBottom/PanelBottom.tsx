@@ -50,7 +50,7 @@ const GameResultInfoContainer = styled.div`
   //background-color: green;
 `;
 
-function Panel() {
+function PanelBottom() {
     const [, forceUpdate] = useReducer(x => x + 1, 0);
 
     useEffect(() => {
@@ -91,4 +91,4 @@ function Panel() {
 
 }
 
-export default Panel;
+export default PanelBottom;
