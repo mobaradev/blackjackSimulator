@@ -94,7 +94,7 @@ function PanelLeft(props: any) {
                         </tr>
                     </PanelTable>
                 </Subsection>
-                <Button>Settings</Button>
+                <Button onClick={() => appContext.setScreenVisibility(0, true)}>Settings</Button>
                 <Button onClick={() => appContext.setScreenVisibility(1, true)}>About</Button>
                 <Clearfix />
                 <LogoAuthor style={{marginTop: "10px"}} />
