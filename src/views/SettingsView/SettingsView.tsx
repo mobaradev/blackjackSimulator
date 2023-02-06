@@ -40,11 +40,13 @@ function SettingsView() {
 
     const setCardDetails = (cardDetails: CARD_TYPE) => {
         SettingsController.cardType = cardDetails;
+        SettingsController.saveSettings();
         forceUpdate();
     }
 
     const setDealerSoft17Action = (dealerSoft17Action: DEALER_SOFT_17_ACTION) => {
         SettingsController.dealerSoft17Action = dealerSoft17Action;
+        SettingsController.saveSettings();
         forceUpdate();
     }
 
