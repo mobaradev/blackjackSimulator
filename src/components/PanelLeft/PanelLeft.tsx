@@ -86,10 +86,6 @@ function PanelLeft(props: any) {
                                 <PanelTd center>{AppController.statistics.bustLoses}</PanelTd>
                             </tr>
                             <tr>
-                                <PanelTd subelement>Dealer blackjack</PanelTd>
-                                <PanelTd center>{AppController.statistics.dealerBlackjackLoses}</PanelTd>
-                            </tr>
-                            <tr>
                                 <PanelTd bold>Net profit</PanelTd>
                                 <PanelTd center>{AppController.statistics.netProfit}</PanelTd>
                             </tr>

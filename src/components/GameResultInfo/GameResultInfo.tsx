@@ -35,7 +35,7 @@ const Container = styled.div<{isVisible: boolean, styleIndex: number}>`
 
 function GameResultInfo(props: any) {
     const [isVisible, setIsVisible] = useState(false);
-    const texts = ["", "", "Player wins!", "Double win!", "Blackjack!", "Dealer wins", "Dealer wins", "Player busted", "Dealer blackjack", "Draw"]
+    const texts = ["", "", "Player wins!", "Double win!", "Blackjack!", "Dealer wins", "Dealer wins", "Player busted", "Draw"]
 
     useEffect(() => {
         if (props.gameStatus !== 0 && props.gameStatus !== 1) {

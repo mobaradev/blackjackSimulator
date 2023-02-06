@@ -12,7 +12,6 @@ export enum GAME_STATUS {
     NORMAL_LOSE,
     DOUBLE_DOWN_LOSE,
     BUST_LOSE,
-    DEALER_BLACKJACK_LOSE,
     DRAW
 }
 

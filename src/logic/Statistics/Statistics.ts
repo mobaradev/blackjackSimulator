@@ -10,7 +10,6 @@ class Statistics {
     loses: number;
     regularLoses: number;
     bustLoses: number;
-    dealerBlackjackLoses: number;
     doubleDownLoses: number;
     netProfit: number;
 
@@ -24,7 +23,6 @@ class Statistics {
         this.loses = 0;
         this.regularLoses = 0;
         this.bustLoses = 0;
-        this.dealerBlackjackLoses = 0;
         this.doubleDownLoses = 0;
         this.netProfit = 0;
     }
@@ -66,11 +64,6 @@ class Statistics {
                 this.bustLoses++;
                 this.netProfit -= 1;
                 break;
-            case GAME_STATUS.DEALER_BLACKJACK_LOSE:
-                this.loses++
-                this.dealerBlackjackLoses++;
-                this.netProfit -= 1;
-                break
             default:
 
         }
