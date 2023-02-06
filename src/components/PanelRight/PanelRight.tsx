@@ -69,42 +69,44 @@ function PanelRight(props: any) {
         <Container style={props.style ? props.style : null}>
             <Subsection title="Predictions">
                 <PanelTable>
-                    <tr>
-                        <PanelTd bold>On Hit</PanelTd>
-                        <PanelTd></PanelTd>
-                    </tr>
-                    <tr>
-                        <PanelTd subelement>To 21</PanelTd>
-                        <PanelTd center>{getPredictionValue(PREDICTION_TYPES.HIT_TO_21)}</PanelTd>
-                    </tr>
-                    <tr>
-                        <PanelTd subelement>To 19-20</PanelTd>
-                        <PanelTd center>{getPredictionValue(PREDICTION_TYPES.HIT_TO_19_20)}</PanelTd>
-                    </tr>
-                    <tr>
-                        <PanelTd subelement>Bust</PanelTd>
-                        <PanelTd center>{getPredictionValue(PREDICTION_TYPES.HIT_BUST)}</PanelTd>
-                    </tr>
-                    <tr>
-                        <PanelTd bold>On Stand</PanelTd>
-                        <PanelTd></PanelTd>
-                    </tr>
-                    <tr>
-                        <PanelTd subelement>Dealer win</PanelTd>
-                        <PanelTd center>{getPredictionValue(PREDICTION_TYPES.STAND_DEALER_REGULAR_WIN)}</PanelTd>
-                    </tr>
-                    <tr>
-                        <PanelTd subelement>Dealer bust</PanelTd>
-                        <PanelTd center>{getPredictionValue(PREDICTION_TYPES.STAND_DEALER_BUST)}</PanelTd>
-                    </tr>
-                    <tr>
-                        <PanelTd subelement>Dealer {"<"} {AppController.blackjack.playerPoints}</PanelTd>
-                        <PanelTd center>{getPredictionValue(PREDICTION_TYPES.STAND_DEALER_REGULAR_LOSE)}</PanelTd>
-                    </tr>
-                    <tr>
-                        <PanelTd subelement>Draw</PanelTd>
-                        <PanelTd center>{getPredictionValue(PREDICTION_TYPES.STAND_DRAW)}</PanelTd>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <PanelTd bold>On Hit</PanelTd>
+                            <PanelTd></PanelTd>
+                        </tr>
+                        <tr>
+                            <PanelTd subelement>To 21</PanelTd>
+                            <PanelTd center>{getPredictionValue(PREDICTION_TYPES.HIT_TO_21)}</PanelTd>
+                        </tr>
+                        <tr>
+                            <PanelTd subelement>To 19-20</PanelTd>
+                            <PanelTd center>{getPredictionValue(PREDICTION_TYPES.HIT_TO_19_20)}</PanelTd>
+                        </tr>
+                        <tr>
+                            <PanelTd subelement>Bust</PanelTd>
+                            <PanelTd center>{getPredictionValue(PREDICTION_TYPES.HIT_BUST)}</PanelTd>
+                        </tr>
+                        <tr>
+                            <PanelTd bold>On Stand</PanelTd>
+                            <PanelTd></PanelTd>
+                        </tr>
+                        <tr>
+                            <PanelTd subelement>Dealer win</PanelTd>
+                            <PanelTd center>{getPredictionValue(PREDICTION_TYPES.STAND_DEALER_REGULAR_WIN)}</PanelTd>
+                        </tr>
+                        <tr>
+                            <PanelTd subelement>Dealer bust</PanelTd>
+                            <PanelTd center>{getPredictionValue(PREDICTION_TYPES.STAND_DEALER_BUST)}</PanelTd>
+                        </tr>
+                        <tr>
+                            <PanelTd subelement>Dealer {"<"} {AppController.blackjack.playerPoints}</PanelTd>
+                            <PanelTd center>{getPredictionValue(PREDICTION_TYPES.STAND_DEALER_REGULAR_LOSE)}</PanelTd>
+                        </tr>
+                        <tr>
+                            <PanelTd subelement>Draw</PanelTd>
+                            <PanelTd center>{getPredictionValue(PREDICTION_TYPES.STAND_DRAW)}</PanelTd>
+                        </tr>
+                    </tbody>
                 </PanelTable>
             </Subsection>
             <Button onClick={() => appContext.setScreenVisibility(2, true)}>Cheat sheet</Button>

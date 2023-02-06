@@ -48,50 +48,52 @@ function PanelLeft(props: any) {
                 <Clearfix />
                 <Subsection title="Statistics">
                     <PanelTable>
-                        <tr>
-                            <PanelTd bold>Games</PanelTd>
-                            <PanelTd center>{AppController.statistics.games}</PanelTd>
-                        </tr>
-                        <tr>
-                            <PanelTd bold>Wins</PanelTd>
-                            <PanelTd center>{AppController.statistics.wins}</PanelTd>
-                        </tr>
-                        <tr>
-                            <PanelTd subelement>Regular</PanelTd>
-                            <PanelTd center>{AppController.statistics.regularWins}</PanelTd>
-                        </tr>
-                        <tr>
-                            <PanelTd subelement>Double down</PanelTd>
-                            <PanelTd center>{AppController.statistics.doubleDownWins}</PanelTd>
-                        </tr>
-                        <tr>
-                            <PanelTd subelement>Blackjack</PanelTd>
-                            <PanelTd center>{AppController.statistics.blackjackWins}</PanelTd>
-                        </tr>
-                        <tr>
-                            <PanelTd bold>Draws</PanelTd>
-                            <PanelTd center>{AppController.statistics.draws}</PanelTd>
-                        </tr>
-                        <tr>
-                            <PanelTd bold>Loses</PanelTd>
-                            <PanelTd center>{AppController.statistics.loses}</PanelTd>
-                        </tr>
-                        <tr>
-                            <PanelTd subelement>Regular</PanelTd>
-                            <PanelTd center>{AppController.statistics.regularLoses}</PanelTd>
-                        </tr>
-                        <tr>
-                            <PanelTd subelement>Bust</PanelTd>
-                            <PanelTd center>{AppController.statistics.bustLoses}</PanelTd>
-                        </tr>
-                        <tr>
-                            <PanelTd subelement>Dealer blackjack</PanelTd>
-                            <PanelTd center>{AppController.statistics.dealerBlackjackLoses}</PanelTd>
-                        </tr>
-                        <tr>
-                            <PanelTd bold>Net profit</PanelTd>
-                            <PanelTd center>{AppController.statistics.netProfit}</PanelTd>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <PanelTd bold>Games</PanelTd>
+                                <PanelTd center>{AppController.statistics.games}</PanelTd>
+                            </tr>
+                            <tr>
+                                <PanelTd bold>Wins</PanelTd>
+                                <PanelTd center>{AppController.statistics.wins}</PanelTd>
+                            </tr>
+                            <tr>
+                                <PanelTd subelement>Regular</PanelTd>
+                                <PanelTd center>{AppController.statistics.regularWins}</PanelTd>
+                            </tr>
+                            <tr>
+                                <PanelTd subelement>Double down</PanelTd>
+                                <PanelTd center>{AppController.statistics.doubleDownWins}</PanelTd>
+                            </tr>
+                            <tr>
+                                <PanelTd subelement>Blackjack</PanelTd>
+                                <PanelTd center>{AppController.statistics.blackjackWins}</PanelTd>
+                            </tr>
+                            <tr>
+                                <PanelTd bold>Draws</PanelTd>
+                                <PanelTd center>{AppController.statistics.draws}</PanelTd>
+                            </tr>
+                            <tr>
+                                <PanelTd bold>Loses</PanelTd>
+                                <PanelTd center>{AppController.statistics.loses}</PanelTd>
+                            </tr>
+                            <tr>
+                                <PanelTd subelement>Regular</PanelTd>
+                                <PanelTd center>{AppController.statistics.regularLoses}</PanelTd>
+                            </tr>
+                            <tr>
+                                <PanelTd subelement>Bust</PanelTd>
+                                <PanelTd center>{AppController.statistics.bustLoses}</PanelTd>
+                            </tr>
+                            <tr>
+                                <PanelTd subelement>Dealer blackjack</PanelTd>
+                                <PanelTd center>{AppController.statistics.dealerBlackjackLoses}</PanelTd>
+                            </tr>
+                            <tr>
+                                <PanelTd bold>Net profit</PanelTd>
+                                <PanelTd center>{AppController.statistics.netProfit}</PanelTd>
+                            </tr>
+                        </tbody>
                     </PanelTable>
                 </Subsection>
                 <Button onClick={() => appContext.setScreenVisibility(0, true)}>Settings</Button>

@@ -58,182 +58,186 @@ function CheatSheetView(props: any) {
             <Wrapper>
                 <h2>Blackjack cheat sheet</h2>
                 <Table>
-                    <tr>
-                        <Td></Td>
-                        <Td>2</Td>
-                        <Td>3</Td>
-                        <Td>4</Td>
-                        <Td>5</Td>
-                        <Td>6</Td>
-                        <Td>7</Td>
-                        <Td>8</Td>
-                        <Td>9</Td>
-                        <Td>10</Td>
-                        <Td>A</Td>
-                    </tr>
-                    <tr>
-                        <Td>5-7</Td>
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                    </tr>
-                    <tr>
-                        <Td>8</Td>
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                    </tr>
-                    <tr>
-                        <Td>9</Td>
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                    </tr>
-                    <tr>
-                        <Td>10</Td>
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                    </tr>
-                    <tr>
-                        <Td>11</Td>
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                        <Cell type={CELL_TYPE.DOUBLE} />
-                    </tr>
-                    <tr>
-                        <Td>12</Td>
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                    </tr>
-                    <tr>
-                        <Td>13</Td>
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                    </tr>
-                    <tr>
-                        <Td>14</Td>
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                    </tr>
-                    <tr>
-                        <Td>15</Td>
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                    </tr>
-                    <tr>
-                        <Td>16</Td>
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                        <Cell type={CELL_TYPE.HIT} />
-                    </tr>
-                    <tr>
-                        <Td>17+</Td>
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                        <Cell type={CELL_TYPE.STAND} />
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <Td></Td>
+                            <Td>2</Td>
+                            <Td>3</Td>
+                            <Td>4</Td>
+                            <Td>5</Td>
+                            <Td>6</Td>
+                            <Td>7</Td>
+                            <Td>8</Td>
+                            <Td>9</Td>
+                            <Td>10</Td>
+                            <Td>A</Td>
+                        </tr>
+                        <tr>
+                            <Td>5-7</Td>
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                        </tr>
+                        <tr>
+                            <Td>8</Td>
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                        </tr>
+                        <tr>
+                            <Td>9</Td>
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                        </tr>
+                        <tr>
+                            <Td>10</Td>
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                        </tr>
+                        <tr>
+                            <Td>11</Td>
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                            <Cell type={CELL_TYPE.DOUBLE} />
+                        </tr>
+                        <tr>
+                            <Td>12</Td>
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                        </tr>
+                        <tr>
+                            <Td>13</Td>
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                        </tr>
+                        <tr>
+                            <Td>14</Td>
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                        </tr>
+                        <tr>
+                            <Td>15</Td>
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                        </tr>
+                        <tr>
+                            <Td>16</Td>
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                            <Cell type={CELL_TYPE.HIT} />
+                        </tr>
+                        <tr>
+                            <Td>17+</Td>
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                            <Cell type={CELL_TYPE.STAND} />
+                        </tr>
+                    </tbody>
                 </Table>
                 <Clearfix />
                 <br />
                 <table>
-                    <tr>
-                        <Cell type={CELL_TYPE.HIT} style={{padding: "4px 12px"}} />
-                        <td>- hit</td>
-                    </tr>
-                    <tr>
-                        <Cell type={CELL_TYPE.DOUBLE} style={{padding: "4px 12px"}} />
-                        <td>- double down</td>
-                    </tr>
-                    <tr>
-                        <Cell type={CELL_TYPE.STAND} style={{padding: "4px 12px"}} />
-                        <td>- stand</td>
-                    </tr>
-                    <tr>
-                        <Cell type={CELL_TYPE.SPLIT} style={{padding: "4px 12px"}} />
-                        <td>- split <i>(currently unavailable)</i></td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <Cell type={CELL_TYPE.HIT} style={{padding: "4px 12px"}} />
+                            <td>- hit</td>
+                        </tr>
+                        <tr>
+                            <Cell type={CELL_TYPE.DOUBLE} style={{padding: "4px 12px"}} />
+                            <td>- double down</td>
+                        </tr>
+                        <tr>
+                            <Cell type={CELL_TYPE.STAND} style={{padding: "4px 12px"}} />
+                            <td>- stand</td>
+                        </tr>
+                        <tr>
+                            <Cell type={CELL_TYPE.SPLIT} style={{padding: "4px 12px"}} />
+                            <td>- split <i>(currently unavailable)</i></td>
+                        </tr>
+                    </tbody>
                 </table>
             </Wrapper>
         </Screen>
