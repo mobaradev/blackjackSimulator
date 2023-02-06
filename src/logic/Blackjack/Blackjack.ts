@@ -1,6 +1,7 @@
 import Deck from "../Deck/Deck";
 import Card from "../Card/Card";
 import AppController from "../../AppController";
+import SettingsController, {DEALER_SOFT_17_ACTION} from "../../SettingsController";
 
 export enum GAME_STATUS {
     NOT_STARTED,
@@ -114,7 +115,13 @@ class Blackjack {
     }
 
     stand() {
-        while (this.dealerPoints < 17) {
+        let dealerStandPoints = 17;
+
+        while (this.dealerPoints < dealerStandPoints) {
+            if (SettingsController.dealerSoft17Action === DEALER_SOFT_17_ACTION.HIT && this.isDealerWithSoftAce) {
+                dealerStandPoints = 18;
+            } else dealerStandPoints = 17;
+
             this.dealerHit();
         }
 
@@ -126,7 +133,6 @@ class Blackjack {
         this.isGameActive = false;
         this.gameStatus = this.determineGameStatus();
         AppController.statistics.handleGameEnd(this.gameStatus);
-        AppController.onGameEnd();
         AppController.onUpdate();
     }
     
@@ -178,6 +184,20 @@ class Blackjack {
         }
 
         return playerPoints;
+    }
+
+    get isDealerWithSoftAce() : boolean {
+        let dealerPoints = this.dealerPoints;
+        let dealerTotalPoints = 0; // total points always takes 11 from ace
+        let numberOfAces = 0;
+
+        this.dealerCards.forEach(card => {
+            dealerTotalPoints += card.value;
+            if (card.isAce) numberOfAces++;
+        });
+
+        if (numberOfAces > 0 && dealerTotalPoints === dealerPoints) return true;
+        else return false;
     }
 
     get isHardAceUsed() : boolean {
