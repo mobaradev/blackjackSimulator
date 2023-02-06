@@ -4,10 +4,8 @@ import ScreenCloseButton from "../../components/ScreenCloseButton/ScreenCloseBut
 import Center from "../../components/Base/Center/Center";
 import {useContext} from "react";
 import styled from "styled-components";
-import Clearfix from "../../components/Base/Clearfix/Clearfix";
 import Screen from "../../components/Screen/Screen";
 import {AppContext} from "../../App";
-import LogoAuthor from "../../components/LogoAuthor/LogoAuthor";
 import Logo from "../../components/Logo/Logo";
 import License from "../../components/License/License";
 import AppController from "../../AppController";

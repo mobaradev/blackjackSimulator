@@ -19,10 +19,6 @@ class AppController {
     static version: string;
     static releaseDate: string;
 
-    // static onPanelUpdate(): () => void;
-    // static onPlayerBust: () => void;
-    // static onDealerBust: () => void;
-
     static init() {
         AppController.version = "1.00";
         AppController.releaseDate = "February 5, 2023";
