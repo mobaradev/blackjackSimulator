@@ -1,5 +1,4 @@
-Blackjack Simulator
------
+# Blackjack Simulator
 
 This simulator is made to demonstrate and simulate the Blackjack game.
 
