@@ -10,6 +10,7 @@ import {AppContext} from "../../App";
 import LogoAuthor from "../../components/LogoAuthor/LogoAuthor";
 import Logo from "../../components/Logo/Logo";
 import License from "../../components/License/License";
+import AppController from "../../AppController";
 
 const Wrapper = styled.div`
   width: 700px;
@@ -95,6 +96,14 @@ function AboutView(props: any) {
                 <h2>License</h2>
                 <p>
                     <License />
+                </p>
+
+                <Separator />
+                <h2>Version</h2>
+                <p>
+                    <b>Version:</b> {AppController.version}
+                    <br />
+                    <b>Release date:</b> {AppController.releaseDate}
                 </p>
             </Wrapper>
         </Screen>
