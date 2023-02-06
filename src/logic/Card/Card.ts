@@ -18,6 +18,7 @@
 class Card {
     number: number;
     value: number;
+    name: string;
     isAce: boolean;
 
     constructor(number: number) {
@@ -25,8 +26,10 @@ class Card {
         this.isAce = (number === 12);
 
         const CARD_VALUES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
+        const NAMES = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 
         this.value = CARD_VALUES[number];
+        this.name = NAMES[number];
     }
 }
 

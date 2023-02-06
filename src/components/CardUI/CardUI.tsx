@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {useEffect, useState} from "react";
 import Random from "../../logic/Random/Random";
+import SettingsController, {CARD_TYPE} from "../../SettingsController";
 
 const Container = styled.div<{isVisible: boolean, rotation: number, verticalMargins: number}>`
   width: 84px;
@@ -19,8 +20,14 @@ const Container = styled.div<{isVisible: boolean, rotation: number, verticalMarg
   transition: transform 1s, opacity 1s;
   transform: rotate(${props => props.rotation}deg);
   opacity: ${props => props.isVisible ? "1" : "0"};
+  user-select: none;
+  user-focus: none;
   
   float: left;
+
+  &:hover {
+    transform: scale(108%);
+  }
 `;
 
 function CardUI(props: any) {
@@ -38,7 +45,21 @@ function CardUI(props: any) {
 
     return(
         <Container isVisible={isVisible} rotation={rotation} verticalMargins={verticalMargins}>
-            {props.number}
+            {
+                SettingsController.cardType === CARD_TYPE.SIMPLIFIED
+                ?
+                    props.number
+                :
+                    ""
+            }
+
+            {
+                SettingsController.cardType === CARD_TYPE.FULL
+                    ?
+                    props.name
+                    :
+                    ""
+            }
         </Container>
     )
 }
