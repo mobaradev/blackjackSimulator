@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Button from "../Button/Button";
-import Separator from "../Separator/Separator";
 import Subsection from "../Subsection/Subsection";
 import Clearfix from "../Base/Clearfix/Clearfix";
 import LogoAuthor from "../LogoAuthor/LogoAuthor";
