@@ -19,7 +19,7 @@ const Title = styled.div`
   font-size: 14px;
   font-weight: bold;
   color: #5e5e5e;
-  background-color: inherit;
+  background-color: aliceblue;
   padding: 0 3px;
 `;
 
