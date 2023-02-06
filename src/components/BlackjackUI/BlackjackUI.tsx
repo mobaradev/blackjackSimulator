@@ -29,7 +29,6 @@ function BlackjackUI(props: any) {
 
     useEffect(() => {
         AppController.onGameStart = gameStart;
-        AppController.onGameEnd = gameEnd;
         AppController.onHit = hit;
         AppController.onDealerHit = dealerHit;
     }, []);
@@ -40,7 +39,6 @@ function BlackjackUI(props: any) {
         setPlayerCards([]);
         setDealerCards([]);
 
-        console.log(AppController.blackjack.playerCards)
         for (let i = 0; i < AppController.blackjack.playerCards.length; i++) {
             addPlayerCard(AppController.blackjack.playerCards[i]);
         }
@@ -48,13 +46,6 @@ function BlackjackUI(props: any) {
         for (let i = 0; i < AppController.blackjack.dealerCards.length; i++) {
             addDealerCard(AppController.blackjack.dealerCards[i]);
         }
-
-        console.log(AppController.blackjack.dealerCards)
-
-    }
-
-    const gameEnd = () => {
-        // handled by GameResultInfo component from bottom panel
     }
 
     const hit = () => {
@@ -82,7 +73,7 @@ function BlackjackUI(props: any) {
                 <div>
                     {
                         dealerCards.map(
-                            (card, index) => <CardUI key={gameId + "-" + index} number={card.value} />
+                            (card, index) => <CardUI key={gameId + "-" + index} number={card.value} name={card.name} />
                         )
                     }
                 </div>
@@ -96,7 +87,7 @@ function BlackjackUI(props: any) {
                 <div>
                     {
                         playerCards.map(
-                            (card, index) => <CardUI key={gameId + "-" + index} number={card.value} />
+                            (card, index) => <CardUI key={gameId + "-" + index} number={card.value} name={card.name} />
                         )
                     }
                 </div>
